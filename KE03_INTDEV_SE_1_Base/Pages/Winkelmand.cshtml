@@ -1,0 +1,54 @@
+﻿@page
+@model KE03_INTDEV_SE_1_Base.Pages.WinkelmandModel
+@{
+    ViewData["Title"] = "Winkelmand";
+    decimal totaal = 0;
+}
+
+<h1 class="mb-4">🛒 Mijn Winkelmand</h1>
+
+@if (!Model.Winkelmandje.Any())
+{
+    <p>Je winkelmand is leeg.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Prijs</th>
+                <th>Aantal</th>
+                <th>Afbeelding</th>
+                <th>Subtotaal</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Winkelmandje)
+            {
+                var subtotal = item.Product.Price * item.Aantal;
+                totaal += subtotal;
+                <tr>
+                    <td>@item.Product.Name</td>
+                    <td>€ @item.Product.Price</td>
+                    <td>@item.Aantal</td>
+                    <td><img src="~/images/@item.Product.Afbeelding " style="width:80px;" /></td>
+                    <td>€ @subtotal</td>
+                    <td>
+                        <form method="post" asp-page-handler="Verwijder">
+                            <input type="hidden" name="id" value="@item.Product.Id" />
+                            <button class="btn btn-danger">❌</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <h4 class="text-end me-3">Totaal: € @totaal</h4>
+
+    <div class="text-end">
+        <a class="btn btn-primary" asp-page="/Bestellen">Verder naar bestellen</a>
+    </div>
+}

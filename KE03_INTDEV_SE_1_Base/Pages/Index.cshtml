@@ -1,0 +1,43 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<div class="container text-center">
+    <h1 class="my-5">Welkom!</h1>
+    <div class="row">
+        <!-- Producten Knop -->
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-box-open fa-3x"></i></h5>
+                    <p class="card-text">Bekijk onze producten en bestel ze gemakkelijk online.</p>
+                    <a class="btn btn-primary" asp-page="/Producten">Bekijk Producten</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bestellingen Knop -->
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-shopping-cart fa-3x"></i></h5>
+                    <p class="card-text">Bekijk en beheer je bestellingen.</p>
+                    <a class="btn btn-success" asp-page="/Bestellingen">Bekijk Bestellingen</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Privacy Knop -->
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-lock fa-3x"></i></h5>
+                    <p class="card-text">Lees ons privacybeleid.</p>
+                    <a class="btn btn-secondary" asp-page="/Privacy">Privacy</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

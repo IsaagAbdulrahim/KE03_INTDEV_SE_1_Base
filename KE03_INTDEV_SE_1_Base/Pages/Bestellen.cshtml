@@ -1,0 +1,62 @@
+﻿@page
+@model KE03_INTDEV_SE_1_Base.Pages.BestellenModel
+@{
+    ViewData["Title"] = "Bestellen";
+}
+
+<h1>Bestelformulier</h1>
+
+@if (!string.IsNullOrEmpty(Model.Bevestiging))
+{
+    <div class="alert alert-success">
+        @Model.Bevestiging
+    </div>
+}
+else
+{
+    <form method="post" class="row g-3">
+        <div class="col-md-6">
+            <label asp-for="NieuweBestelling.Voornaam" class="form-label"></label>
+            <input asp-for="NieuweBestelling.Voornaam" class="form-control" />
+            <span asp-validation-for="NieuweBestelling.Voornaam" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-6">
+            <label asp-for="NieuweBestelling.Achternaam" class="form-label"></label>
+            <input asp-for="NieuweBestelling.Achternaam" class="form-control" />
+            <span asp-validation-for="NieuweBestelling.Achternaam" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-6">
+            <label asp-for="NieuweBestelling.Woonplaats" class="form-label"></label>
+            <input asp-for="NieuweBestelling.Woonplaats" class="form-control" />
+            <span asp-validation-for="NieuweBestelling.Woonplaats" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-6">
+            <label asp-for="NieuweBestelling.Postcode" class="form-label"></label>
+            <input asp-for="NieuweBestelling.Postcode" class="form-control" />
+            <span asp-validation-for="NieuweBestelling.Postcode" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-6">
+            <label asp-for="NieuweBestelling.Email" class="form-label"></label>
+            <input asp-for="NieuweBestelling.Email" class="form-control" />
+            <span asp-validation-for="NieuweBestelling.Email" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-6">
+            <label asp-for="NieuweBestelling.Betaalmethode" class="form-label">Betaalgegevens</label>
+            <input asp-for="NieuweBestelling.Betaalmethode" class="form-control" placeholder="Bijv. iDEAL / Creditcard" />
+            <span asp-validation-for="NieuweBestelling.Betaalmethode" class="text-danger"></span>
+        </div>
+
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary">Bestelling Plaatsen</button>
+        </div>
+    </form>
+}
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

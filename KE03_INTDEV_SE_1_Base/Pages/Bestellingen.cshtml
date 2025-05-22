@@ -1,0 +1,40 @@
+﻿@page
+@model KE03_INTDEV_SE_1_Base.Pages.BestellingenModel
+@{
+    ViewData["Title"] = "Mijn Bestellingen";
+}
+
+<h1>Mijn Bestellingen</h1>
+
+@if (!Model.BestellingenLijst.Any())
+{
+    <p>Er zijn nog geen bestellingen geplaatst.</p>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Datum</th>
+                <th>Naam</th>
+                <th>Postcode</th>
+                <th>E-mail</th>
+                <th>Totaalbedrag</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var b in Model.BestellingenLijst)
+            {
+                <tr>
+                    <td>@b.Datum.ToShortDateString()</td>
+                    <td>@b.Voornaam @b.Achternaam</td>
+                    <td>@b.Postcode</td>
+                    <td>@b.Email</td>
+                    <td>€ @b.Totaalbedrag</td>
+                    <td>@b.Status</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
