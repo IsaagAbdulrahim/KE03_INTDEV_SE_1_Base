@@ -46,6 +46,15 @@ else
         </div>
 
         <div class="col-md-6">
+            <label for=" Betaalgegevens"></label>
+            <select>
+                <label asp-for="NieuweBestelling.Betaalmethode" class="form-label">Betaalgegevens</label>
+                <option value="Visa">Visa</option>
+                <option value="iDEAL">iDEAL</option>
+                <option value="Creditcard">Creditcard</option>
+            </select>
+            <br />
+
             <label asp-for="NieuweBestelling.Betaalmethode" class="form-label">Betaalgegevens</label>
             <input asp-for="NieuweBestelling.Betaalmethode" class="form-control" placeholder="Bijv. iDEAL / Creditcard" />
             <span asp-validation-for="NieuweBestelling.Betaalmethode" class="text-danger"></span>
